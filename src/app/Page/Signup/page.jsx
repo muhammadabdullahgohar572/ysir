@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 const Signup = () => {
   const [form, setForm] = useState({
     username: "",
-    user_email: "",
+    email: "",
     phone: "",
     password: "",
   });
@@ -76,7 +76,7 @@ const Signup = () => {
             <input
               type="email"
               name="user_email"
-              value={form.user_email}
+              value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               className="w-full p-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-300 transition"
               placeholder="Enter your email"

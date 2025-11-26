@@ -29,7 +29,7 @@ export default function Navbar() {
     },
     {
       name: "Resources",
-      href: "/resources",
+      href: "/Page/resources",
     },
     {
       name: "Our Company",
@@ -37,10 +37,10 @@ export default function Navbar() {
     },
     { name: "Blog", href: "/Page/Blogs" },
     { name: "Contact", href: "/Page/Contact" },
-    // Order और OrderDetails केवल login होने पर दिखेंगे
+
     ...(data
       ? [
-          { name: "Order", href: "/Page/Order" },
+          { name: "Order", href: "/Page/PatchOrderForm" },
           { name: "OrderDetails", href: "/Page/OrderDetails" },
         ]
       : []),
@@ -133,7 +133,7 @@ export default function Navbar() {
                 </button>
               </div>
             ) : (
-              // User logged out होने पर
+              // User logged out
               <Link
                 href="/Page/Login"
                 className="flex items-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-orange-700 transition-colors duration-200"
@@ -200,7 +200,7 @@ export default function Navbar() {
           {/* Mobile Auth Buttons */}
           <div className="pt-3 border-t border-gray-800 space-y-2">
             {data ? (
-              // Mobile - User logged in होने पर
+              // Mobile - User logged in
               <div className="space-y-2">
                 <div className="text-center text-gray-300 text-sm py-2">
                   Welcome, {data.username || "User"}
@@ -214,7 +214,7 @@ export default function Navbar() {
                 </button>
               </div>
             ) : (
-              // Mobile - User logged out होने पर
+              // Mobile - User logged out
               <Link
                 href="/Page/Login"
                 className="flex items-center justify-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-orange-700 transition-colors duration-200"
