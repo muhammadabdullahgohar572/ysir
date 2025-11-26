@@ -29,11 +29,11 @@ export default function Navbar() {
     },
     { 
       name: "Our Company", 
-      href: "/company",
+      href: "/Page/Campany",
     
     },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" },
+    { name: "Blog", href: "/Page/Blogs" },
+    { name: "Contact", href: "/Page/Contact" },
   ];
 
   const toggleDropdown = (name) => {
@@ -41,11 +41,11 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="w-full bg-black text-white shadow-lg sticky top-0 z-50">
+    <nav className="w-full bg-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
         
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold tracking-wide text-white">
+        <Link href="/" className="text-2xl font-bold tracking-wide ">
           QUALITY PATCHES<span className="text-orange-500">.</span>
         </Link>
 
@@ -56,7 +56,7 @@ export default function Navbar() {
               {item.dropdown ? (
                 <button
                   onClick={() => toggleDropdown(item.name)}
-                  className="flex items-center gap-1 text-gray-300 hover:text-white px-2 py-2 text-sm font-medium transition-colors duration-200"
+                  className="flex items-center gap-1  hover:text-gray-600  px-2 py-2 text-sm font-medium transition-colors duration-200"
                 >
                   {item.name}
                   <ChevronDown size={16} className={`transition-transform ${activeDropdown === item.name ? 'rotate-180' : ''}`} />
@@ -64,7 +64,7 @@ export default function Navbar() {
               ) : (
                 <Link 
                   href={item.href} 
-                  className="text-gray-300 hover:text-white px-2 py-2 text-sm font-medium transition-colors duration-200"
+                  className="0 hover:text-gray-600 px-2 py-2 text-sm font-medium transition-colors duration-200"
                 >
                   {item.name}
                 </Link>
@@ -91,17 +91,17 @@ export default function Navbar() {
         {/* Right Section - Search & Auth */}
         <div className="hidden lg:flex items-center gap-4">
           {/* Search Button */}
-          <button
+          {/* <button
             onClick={() => setSearchOpen(!searchOpen)}
-            className="text-gray-300 hover:text-white p-1 transition-colors duration-200"
+            className="  p-1 transition-colors duration-200"
           >
             <Search size={20} />
-          </button>
+          </button> */}
 
           {/* Auth Buttons */}
           <div className="flex items-center gap-3">
             <Link
-              href="/login"
+              href="/Page/Login"
               className="flex items-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-orange-700 transition-colors duration-200"
             >
               <User size={16} />
@@ -112,7 +112,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button 
-          className="lg:hidden text-white p-1" 
+          className="lg:hidden p-1" 
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={24} /> : <Menu size={24} />}
@@ -176,7 +176,7 @@ export default function Navbar() {
           ))}
 
           {/* Mobile Search */}
-          <div className="pt-2">
+          {/* <div className="pt-2">
             <div className="relative">
               <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
               <input
@@ -185,7 +185,7 @@ export default function Navbar() {
                 className="w-full bg-gray-800 text-white px-4 py-2 pl-10 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
               />
             </div>
-          </div>
+          </div> */}
 
           {/* Mobile Auth Buttons */}
           <div className="pt-3 border-t border-gray-800 space-y-2">

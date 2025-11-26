@@ -3,7 +3,7 @@ import { MapPin, Mail, Phone, MessageCircle, AtSign } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import image1 from "../../image/About-us-1-r4vqgmsttqwvarxcqa4biz6eswxps3qe8gcenel1xw (1).webp";
-export const Company = () => {
+ const Company = () => {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -261,3 +261,6 @@ export const Company = () => {
     </>
   );
 };
+
+
+export  default Company

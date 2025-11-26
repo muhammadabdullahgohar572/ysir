@@ -4,7 +4,7 @@ import { MapPin, Mail, Phone, MessageCircle, AtSign } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export const Blogs = () => {
+ const Blogs = () => {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -552,3 +552,5 @@ export const Blogs = () => {
     </>
   );
 };
+
+export default Blogs

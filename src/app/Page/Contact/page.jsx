@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import imagelogo from "../../image/Contact-us-Image.webp";
 
-export default function ContactPage() {
+function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -486,3 +486,6 @@ export default function ContactPage() {
     </>
   );
 }
+
+
+export default ContactPage
