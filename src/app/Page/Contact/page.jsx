@@ -41,16 +41,28 @@ function ContactPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
-    alert("Thank you for your message! We'll get back to you soon.");
+
+    try {
+      const res = await fetch("/api/Contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        toast.error(data.message || "Something went wrong!");
+        return;
+      }
+
+      toast.success("Message Sent Successfully!");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      toast.error("Server error, please try again later.");
+    }
   };
 
   return (
@@ -487,5 +499,4 @@ function ContactPage() {
   );
 }
 
-
-export default ContactPage
+export default ContactPage;

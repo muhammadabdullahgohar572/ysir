@@ -27,7 +27,7 @@ const PatchOrderForm = () => {
   const [form, setForm] = useState({
     width: "",
     height: "",
-    product: "Embroidered Patches",
+    product: "",
     backing: "",
     quantity: "",
     name: "",
@@ -103,13 +103,7 @@ const PatchOrderForm = () => {
       return;
     }
 
-    if (parseInt(form.quantity) < 10) {
-      toast.error("Minimum order quantity is 10 pieces!", {
-        position: "top-center",
-        theme: "colored",
-      });
-      return;
-    }
+   
 
     if (form.files.length === 0) {
       toast.error("Please upload at least one design file!", {

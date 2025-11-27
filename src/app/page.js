@@ -3,6 +3,7 @@ import CustomProducts from "./Components/CustomProducts";
 import FAQPage from "./Components/Faqs";
 import { Hero } from "./Components/Hero";
 import OrderProcess from "./Components/OrderProcess";
+import ReviewsSection from "./Components/Section";
 import SimpleCreativeHero from "./Components/SimpleCreativeHero";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
   <AboutUsWithIcons/>
   <SimpleCreativeHero/>
   <FAQPage/>
+  <ReviewsSection/>
    </>
   );
 }

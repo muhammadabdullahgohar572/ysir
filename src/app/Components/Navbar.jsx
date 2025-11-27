@@ -119,11 +119,11 @@ export default function Navbar() {
           {/* Auth Buttons */}
           <div className="flex items-center gap-3">
             {data ? (
-              // User logged in होने पर
+              // User logged in 
               <div className="flex items-center gap-3">
-                <span className="text-sm ml-[5px] text-gray-700">
+                {/* <span className="text-sm ml-[5px] text-gray-700">
                   Welcome 🖐, {data.username || "User"}
-                </span>
+                </span> */}
                 <button
                   onClick={handleLogout}
                   className="flex items-center gap-2 bg-gray-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-700 transition-colors duration-200"
@@ -202,9 +202,9 @@ export default function Navbar() {
             {data ? (
               // Mobile - User logged in
               <div className="space-y-2">
-                <div className="text-center text-gray-300 text-sm py-2">
+                {/* <div className="text-center text-gray-300 text-sm py-2">
                   Welcome, {data.username || "User"}
-                </div>
+                </div> */}
                 <button
                   onClick={handleLogout}
                   className="flex items-center justify-center gap-2 bg-gray-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-700 transition-colors duration-200 w-full"

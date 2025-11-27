@@ -1,18 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { 
-  Search, 
-  Filter, 
-  Download, 
-  Eye, 
-  Edit, 
-  Trash2, 
+import {
+  Search,
+  Filter,
+  Download,
+  Eye,
+  Edit,
+  Trash2,
   RefreshCw,
   CheckCircle,
   Clock,
   XCircle,
-  AlertCircle
+  AlertCircle,
 } from "lucide-react";
 
 function OrdersPage() {
@@ -51,18 +51,19 @@ function OrdersPage() {
 
     // Apply status filter
     if (statusFilter !== "all") {
-      filtered = filtered.filter(order => order.status === statusFilter);
+      filtered = filtered.filter((order) => order.status === statusFilter);
     }
 
     // Apply search filter
     if (searchTerm) {
       const term = searchTerm.toLowerCase();
-      filtered = filtered.filter(order =>
-        order.name?.toLowerCase().includes(term) ||
-        order.email?.toLowerCase().includes(term) ||
-        order.phone?.includes(term) ||
-        order.product?.toLowerCase().includes(term) ||
-        order._id?.toLowerCase().includes(term)
+      filtered = filtered.filter(
+        (order) =>
+          order.name?.toLowerCase().includes(term) ||
+          order.email?.toLowerCase().includes(term) ||
+          order.phone?.includes(term) ||
+          order.product?.toLowerCase().includes(term) ||
+          order._id?.toLowerCase().includes(term)
       );
     }
 
@@ -92,8 +93,8 @@ function OrdersPage() {
       }
 
       // Update local state
-      setOrders(prevOrders =>
-        prevOrders.map(order =>
+      setOrders((prevOrders) =>
+        prevOrders.map((order) =>
           order._id === orderId ? { ...order, status: newStatus } : order
         )
       );
@@ -125,7 +126,9 @@ function OrdersPage() {
       }
 
       // Remove from local state
-      setOrders(prevOrders => prevOrders.filter(order => order._id !== orderId));
+      setOrders((prevOrders) =>
+        prevOrders.filter((order) => order._id !== orderId)
+      );
     } catch (err) {
       setError(err.message);
     }
@@ -147,23 +150,6 @@ function OrdersPage() {
     }
   };
 
-  // Get status icon
-  const getStatusIcon = (status) => {
-    switch (status) {
-      case "Pending":
-        return <Clock size={14} />;
-      case "Processing":
-        return <RefreshCw size={14} />;
-      case "Completed":
-        return <CheckCircle size={14} />;
-      case "Cancelled":
-        return <XCircle size={14} />;
-      default:
-        return <AlertCircle size={14} />;
-    }
-  };
-
-  // View order details
   const viewOrderDetails = (order) => {
     setSelectedOrder(order);
     setIsModalOpen(true);
@@ -200,7 +186,11 @@ function OrdersPage() {
         <h1 className="text-3xl font-bold text-gray-800 mb-2">All Orders</h1>
         <p className="text-gray-600">
           Total: {filteredOrders.length} order(s) found
-          {statusFilter !== "all" && ` • ${statusFilter}: ${filteredOrders.filter(order => order.status === statusFilter).length}`}
+          {statusFilter !== "all" &&
+            ` • ${statusFilter}: ${
+              filteredOrders.filter((order) => order.status === statusFilter)
+                .length
+            }`}
         </p>
       </div>
 
@@ -211,7 +201,10 @@ function OrdersPage() {
           <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
             {/* Search */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <Search
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                size={20}
+              />
               <input
                 type="text"
                 placeholder="Search orders..."
@@ -223,7 +216,10 @@ function OrdersPage() {
 
             {/* Status Filter */}
             <div className="relative">
-              <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <Filter
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                size={20}
+              />
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
@@ -247,10 +243,6 @@ function OrdersPage() {
               <RefreshCw size={18} />
               Refresh
             </button>
-            <button className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
-              <Download size={18} />
-              Export
-            </button>
           </div>
         </div>
       </div>
@@ -261,8 +253,8 @@ function OrdersPage() {
           <div className="text-center py-12">
             <div className="text-gray-400 text-lg mb-2">No orders found</div>
             <p className="text-gray-500">
-              {searchTerm || statusFilter !== "all" 
-                ? "Try adjusting your search or filters" 
+              {searchTerm || statusFilter !== "all"
+                ? "Try adjusting your search or filters"
                 : "No orders have been placed yet"}
             </p>
           </div>
@@ -290,28 +282,31 @@ function OrdersPage() {
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {filteredOrders.map((order) => (
-                  <tr key={order._id} className="hover:bg-gray-50 transition-colors">
+                  <tr
+                    key={order._id}
+                    className="hover:bg-gray-50 transition-colors"
+                  >
                     {/* Order Details */}
                     <td className="px-6 py-4">
                       <div className="space-y-1">
-                        <div className="font-medium text-gray-900">{order.name}</div>
-                        <div className="text-sm text-gray-600">{order.email}</div>
-                        <div className="text-sm text-gray-600">{order.phone}</div>
-                        <div className="text-xs text-gray-500">
-                          ID: {order._id?.substring(0, 8)}...
+                        <div className="font-medium text-gray-900">
+                          {order.name}
                         </div>
-                        {order.user_id && (
-                          <div className="text-xs text-gray-500">
-                            User: {order.user_id?.substring(0, 8)}...
-                          </div>
-                        )}
+                        <div className="text-sm text-gray-600">
+                          {order.email}
+                        </div>
+                        <div className="text-sm text-gray-600">
+                          {order.phone}
+                        </div>
                       </div>
                     </td>
 
                     {/* Product Info */}
                     <td className="px-6 py-4">
                       <div className="space-y-1">
-                        <div className="font-medium text-gray-900">{order.product}</div>
+                        <div className="font-medium text-gray-900">
+                          {order.product}
+                        </div>
                         <div className="text-sm text-gray-600">
                           Size: {order.width} x {order.height}
                         </div>
@@ -335,17 +330,21 @@ function OrdersPage() {
                     <td className="px-6 py-4">
                       <div className="flex flex-wrap gap-1">
                         {order.files && order.files.length > 0 ? (
-                          order.files.slice(0, 3).map((img, i) => (
-                            <img
-                              key={i}
-                              src={img}
-                              alt={`Design ${i + 1}`}
-                              className="w-12 h-12 rounded border object-cover cursor-pointer hover:opacity-80 transition-opacity"
-                              onClick={() => window.open(img, '_blank')}
-                            />
-                          ))
+                          order.files
+                            .slice(0, 3)
+                            .map((img, i) => (
+                              <img
+                                key={i}
+                                src={img}
+                                alt={`Design ${i + 1}`}
+                                className="w-12 h-12 rounded border object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                                onClick={() => window.open(img, "_blank")}
+                              />
+                            ))
                         ) : (
-                          <span className="text-gray-400 text-sm">No files</span>
+                          <span className="text-gray-400 text-sm">
+                            No files
+                          </span>
                         )}
                         {order.files && order.files.length > 3 && (
                           <div className="w-12 h-12 bg-gray-100 rounded border flex items-center justify-center text-xs text-gray-500">
@@ -357,16 +356,13 @@ function OrdersPage() {
 
                     {/* Status */}
                     <td className="px-6 py-4">
-                      <select
-                        value={order.status}
-                        onChange={(e) => updateOrderStatus(order._id, e.target.value)}
-                        className={`px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(order.status)} focus:ring-2 focus:ring-orange-500 focus:border-orange-500`}
+                      <span
+                        className={`px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(
+                          order.status
+                        )} focus:ring-2 focus:ring-orange-500 focus:border-orange-500`}
                       >
-                        <option value="Pending">Pending</option>
-                        <option value="Processing">Processing</option>
-                        <option value="Completed">Completed</option>
-                        <option value="Cancelled">Cancelled</option>
-                      </select>
+                        <span>Pending</span>
+                      </span>
                     </td>
 
                     {/* Actions */}
@@ -378,20 +374,6 @@ function OrdersPage() {
                           title="View Details"
                         >
                           <Eye size={16} />
-                        </button>
-                        <button
-                          onClick={() => updateOrderStatus(order._id, "Processing")}
-                          className="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors"
-                          title="Mark as Processing"
-                        >
-                          <RefreshCw size={16} />
-                        </button>
-                        <button
-                          onClick={() => deleteOrder(order._id)}
-                          className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-                          title="Delete Order"
-                        >
-                          <Trash2 size={16} />
                         </button>
                       </div>
                     </td>
@@ -409,7 +391,9 @@ function OrdersPage() {
           <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-800">Order Details</h2>
+                <h2 className="text-2xl font-bold text-gray-800">
+                  Order Details
+                </h2>
                 <button
                   onClick={() => setIsModalOpen(false)}
                   className="text-gray-400 hover:text-gray-600 transition-colors"
@@ -455,7 +439,9 @@ function OrdersPage() {
                   </div>
                   <div>
                     <label className="text-sm text-gray-500">Size</label>
-                    <p className="font-medium">{selectedOrder.width} x {selectedOrder.height}</p>
+                    <p className="font-medium">
+                      {selectedOrder.width} x {selectedOrder.height}
+                    </p>
                   </div>
                   <div>
                     <label className="text-sm text-gray-500">Quantity</label>
@@ -474,15 +460,21 @@ function OrdersPage() {
                 </div>
 
                 {/* Additional Details */}
-                {(selectedOrder.instructions || selectedOrder.budget || selectedOrder.urgency) && (
+                {(selectedOrder.instructions ||
+                  selectedOrder.budget ||
+                  selectedOrder.urgency) && (
                   <div className="md:col-span-2 space-y-4">
                     <h3 className="text-lg font-semibold text-gray-800 border-b pb-2">
                       Additional Details
                     </h3>
                     {selectedOrder.instructions && (
                       <div>
-                        <label className="text-sm text-gray-500">Instructions</label>
-                        <p className="font-medium">{selectedOrder.instructions}</p>
+                        <label className="text-sm text-gray-500">
+                          Instructions
+                        </label>
+                        <p className="font-medium">
+                          {selectedOrder.instructions}
+                        </p>
                       </div>
                     )}
                     {selectedOrder.budget && (
@@ -513,7 +505,7 @@ function OrdersPage() {
                             src={file}
                             alt={`Design ${index + 1}`}
                             className="w-full h-24 object-cover rounded-lg border cursor-pointer hover:opacity-80 transition-opacity mb-2"
-                            onClick={() => window.open(file, '_blank')}
+                            onClick={() => window.open(file, "_blank")}
                           />
                           <p className="text-xs text-gray-500 truncate">
                             Design {index + 1}
