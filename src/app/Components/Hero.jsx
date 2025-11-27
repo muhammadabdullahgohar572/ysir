@@ -6,6 +6,7 @@ import googleLogo from "../image/Toyota-logo-icon-on-transparent-background-PNG.
 import slider1 from "../image/custom-path-group-homepage.webp";
 import slider2 from "../image/custom-pins-home.webp";
 import slider3 from "../image/Socks-homepage.webp";
+import Link from "next/link";
 
 export const Hero = () => {
   const logos = [
@@ -66,9 +67,9 @@ export const Hero = () => {
               We're your one-stop shop for turning ideas into reality, with
               personalized service and quality you'll love.
             </p>
-            <button className="bg-black border-2 border-red-800 hover:text-red-800 hover:border-white rounded-2xl text-white font-semibold py-4 px-12 text-lg transition-transform duration-300 hover:scale-105">
+            <Link href={"/Page/PatchOrderForm"} className="bg-black border-2 border-red-800 hover:text-red-800 hover:border-white rounded-2xl text-white font-semibold py-4 px-12 text-lg transition-transform duration-300 hover:scale-105">
               Get Started
-            </button>
+            </Link>
           </div>
 
           {/* Right Slider */}
