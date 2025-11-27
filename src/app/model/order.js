@@ -12,9 +12,11 @@ const patchOrderSchema = new mongoose.Schema(
     email: { type: String, required: true },
     phone: { type: String, required: true },
     instructions: { type: String },
-    source: { type: String }, // How did you hear about us
+    source: { type: String },
     budget: { type: String },
-    file: { type: String }, // file URL or path
+    colors: { type: String },
+    urgency: { type: String },
+    files: [{ type: String }], // Array of file URLs
     status: { type: String, default: "Pending" },
   },
   { timestamps: true }

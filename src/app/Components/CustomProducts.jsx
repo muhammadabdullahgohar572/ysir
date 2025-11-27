@@ -7,47 +7,32 @@ export default function CustomProducts() {
     {
       id: 1,
       title: "Embroidered Patches",
-      subtitle: "Transform designs into textured masterpieces",
+      subtitle: "",
       description:
         "From basic embroidery to puff, sequin, and new floating patches, we offer the full line of embroidered patches. Decades of crafting experience woven into every stitch.",
       image:
         "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
-      features: [
-        "Custom Shapes",
-        "3D Puff Option",
-        "Sequins Available",
-        "Floating Designs",
-      ],
+      features: [],
     },
     {
       id: 2,
       title: "Chenille Patches",
-      subtitle: "Classic varsity look with plush texture",
+      subtitle: "",
       description:
         "The soft, fuzzy threads create a plush effect that is perfect for capturing a classic varsity look or for adding a playful dimension to your designs.",
       image:
         "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&h=400&fit=crop",
-      features: [
-        "Soft Texture",
-        "Varsity Style",
-        "Fuzzy Finish",
-        "Colorful Options",
-      ],
+      features: [],
     },
     {
       id: 3,
       title: "PVC Patches",
-      subtitle: "Maximum detail and durability",
+      subtitle: "",
       description:
         "Maximize design detail and achieve a thicker, more substantial feel with custom PVC patches. Their resilient material ensures your artwork stands out with vibrant colors and lasting wear.",
       image:
         "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
-      features: [
-        "High Detail",
-        "Durable Material",
-        "Vibrant Colors",
-        "Weather Resistant",
-      ],
+      features: [],
     },
     {
       id: 4,
