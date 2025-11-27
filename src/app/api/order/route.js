@@ -77,6 +77,9 @@ export async function POST(request) {
 
     // Save order to MongoDB
     const newOrder = new PatchOrder({
+      username: jwtdecode.username,
+      email: jwtdecode.email,
+      phone: jwtdecode.phone,
       user_id: jwtdecode._id,
       width,
       height,
@@ -115,7 +118,6 @@ export async function POST(request) {
   }
 }
 
-
 export async function GET(request) {
   await Db_connection();
 
@@ -124,10 +126,7 @@ export async function GET(request) {
     const gettoken = request.cookies.get("AuthToken")?.value;
 
     if (!gettoken) {
-      return NextResponse.json(
-        { message: "No token found" },
-        { status: 401 }
-      );
+      return NextResponse.json({ message: "No token found" }, { status: 401 });
     }
 
     // Token decode
@@ -147,4 +146,3 @@ export async function GET(request) {
     );
   }
 }
-

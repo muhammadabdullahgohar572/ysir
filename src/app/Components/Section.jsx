@@ -84,42 +84,46 @@ export const ReviewsSection = () => {
           &#8592;
         </button>
 
-        {/* Images Row */}
-        <div
-          ref={sliderRef}
-          className="
-            flex 
-            gap-6 
-            overflow-x-scroll 
-            scroll-smooth 
-            scrollbar-hide
-          "
-          style={{ overflowY: "hidden" }}
-        >
-          {images.map((img, i) => (
-            <div
-              key={i}
-              className="
-                w-72 
-                h-72 
-                flex-shrink-0 
-                rounded-xl 
-                overflow-hidden 
-                cursor-pointer 
-                bg-gray-200
-              "
-              onClick={() => setFullScreenImage(img)}
-            >
-              <Image
-                src={img}
-                alt="Gallery Image"
-                width={288}
-                height={288}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
-        </div>
+      <div
+  ref={sliderRef}
+  className="
+    flex 
+    gap-6 
+    overflow-x-auto 
+    overflow-y-hidden 
+    scroll-smooth 
+    [&::-webkit-scrollbar]:hidden 
+    [-ms-overflow-style:none] 
+    [scrollbar-width:none]
+    py-1
+  "
+>
+  {images.map((img, i) => (
+    <div
+      key={i}
+      className="
+        w-72 
+        h-72 
+        flex-shrink-0 
+        rounded-xl 
+        overflow-hidden 
+        cursor-pointer 
+        bg-gray-200
+        transition-transform 
+        hover:scale-105
+      "
+      onClick={() => setFullScreenImage(img)}
+    >
+      <Image
+        src={img}
+        alt="Gallery Image"
+        width={288}
+        height={288}
+        className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+      />
+    </div>
+  ))}
+</div>
 
         {/* Right Arrow */}
         <button
